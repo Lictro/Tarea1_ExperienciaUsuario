@@ -1,0 +1,33 @@
+<h1>Usuarios</h1>
+<div class="row">
+  <div class="col-md-6">
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>E-Mail</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |us| %>
+        <tr>
+          <td><%= us.id %></td>
+          <td><%= us.nombre %></td>
+          <td><%= us.correo %></td>
+          <td><%= link_to "Mostrar", users_path %></td>
+          <td><%= link_to "Editar", edit_users_path(us) %></td>
+          <td>
+            <%= link_to "Eliminar", users_path, method: :delete, data:{
+                confirm: "Seguro?"} %>
+          </td>
+        </tr>
+    <% end  %>
+    </tbody>
+    </table>
+  </div>
+</div>
+<%= link_to "Nuevo Usuario", new_users_path %>
